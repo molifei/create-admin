@@ -29,7 +29,7 @@ export default {
     $route: {
       immediate: true,
       handler(to, from) {
-        console.log(to)
+        // console.log(to)
         // 将页签列表每个页签的状态设置为false
         this.list.forEach(item => {
           item.active = false;
@@ -150,7 +150,7 @@ export default {
 
 <style scoped lang="less">
   /deep/ .list-scroll-wrap {
-    height: 100%;
+    /*height: calc(100% + 32px);*/
   }
 
   /deep/ .el-scrollbar .el-scrollbar__wrap .el-scrollbar__view {
@@ -161,7 +161,7 @@ export default {
   /deep/ .el-scrollbar__wrap {
     overflow-x: auto;
     overflow-y: hidden;
-    height: calc(100% + 20px);
+    height: 49px;
 
     &::-webkit-scrollbar {
       display: none; /* Chrome Safari */
@@ -169,11 +169,10 @@ export default {
   }
 
   .tab {
+    padding: 0 20px;
     width: 100%;
-    top: 55px;
-    left: 0;
     background-color: rgb(245, 247, 249);
-    height: 36px;
+    height: 49px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -202,27 +201,23 @@ export default {
       width: 100%;
 
       li {
-        padding: 0 5px;
+        padding: 0 10px;
         /*margin-right: 5px;*/
         cursor: pointer;
-        border-top: 2px solid transparent;
-        border-left: 1px solid #f6f6f6;
-        border-right: 1px solid #f6f6f6;
+        border: 1px solid #fff;
+        background-color: #fff;
         transition: all .2s ease-in-out;
         text-align: center;
         font-size: 14px;
         color: #596a7a;
-        font-weight: bold;
-        height: 36px;
+        height: 32px;
         display: flex;
+        margin-right: 5px;
+        border-radius: 5px;
 
 
         span {
-          line-height: 36px;
-          width: 56px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
+          line-height: 32px;
           margin-right: 8px;
         }
 
@@ -234,9 +229,8 @@ export default {
         }
 
         &.active {
-          border-color: transparent;
-          background-color: #f6f6f6;
-          border-top: 2px solid #000;
+          background-color: #fff;
+          border-color: #1890ff;
           color: #0c1621;
 
           .el-icon-close {

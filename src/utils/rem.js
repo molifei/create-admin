@@ -9,7 +9,7 @@ let uiWidth = 750;
     a = function() {
       let n = t.clientWidth || 320;
       n > uiWidth && (n = uiWidth);
-      console.log(`当前屏幕使用宽度： %c${n}`, 'color:#ffa547')
+      // console.log(`当前屏幕使用宽度： %c${n}`, 'color:#ffa547')
       t.style.fontSize = n / d + 'px'
     };
   e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener('DOMContentLoaded', a, !1))

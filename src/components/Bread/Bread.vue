@@ -22,7 +22,7 @@ export default {
     $route: {
       immediate: true,
       handler(to, from) {
-        console.log(to)
+        // console.log(to)
         this.breadLink = to.matched
       }
     }

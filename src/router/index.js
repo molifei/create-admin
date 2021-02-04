@@ -69,6 +69,18 @@ const routes = [
           },
         ]
       },
+      {
+        path: '/text',
+        name: 'Text',
+        meta: { title: '富文本编辑器', icon: 'el-icon-edit' },
+        component: () => import('@/views/Text/Text'),
+      },
+      {
+        path: '/upload',
+        name: 'Upload',
+        meta: { title: '上传', icon: 'el-icon-upload2' },
+        component: () => import('@/views/Upload/Upload'),
+      },
     ]
   },
   {

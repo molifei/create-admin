@@ -35,8 +35,8 @@ audio, canvas, video {
 }
 
 /* 要注意表单元素并不继承父级 font 的问题 */
-body, button, input, select, textarea {
-    font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+body, button, input, select, textarea,button span {
+    font: 12px/1.5 webfont;
 }
 
 input, select, textarea {
@@ -165,54 +165,15 @@ body .hide {
     width: 1152px;
     margin: 0 auto;
 }
-.ww{
-    width: 1204px;
-    margin: 0 auto;
-}
 
 body {
     /*background-color: #f5f5f5;*/
 }
 
-/*@font-face {*/
-/*font-family: PingFangSC-;*/
-/*src: url("../fonts/PingFangSC-normal.ttf"),*/
-/*url("../fonts/PingFangSC.ttf");*/
-/*}*/
-
 html, body {
-    font-family: PingFangSC-, sans-serif !important;
+    font-family: webfont;
 }
 
-/* 阿里矢量图标 */
-/*@font-face {*/
-/*font-family: 'iconfont';*/
-/*src: url('/lib/iconfont/iconfont.eot');*/
-/*src: url('/lib/iconfont/iconfont.eot?#iefix') format('embedded-opentype'),*/
-/*url('/lib/iconfont/iconfont.woff2') format('woff2'),*/
-/*url('/lib/iconfont/iconfont.woff') format('woff'),*/
-/*url('/lib/iconfont/iconfont.ttf') format('truetype'),*/
-/*url('/lib/iconfont/iconfont.svg#iconfont') format('svg');*/
-/*}*/
-
-
-@font-face {
-    font-family: 'iconfont';  /* project id 1134501 */
-    src: url('//at.alicdn.com/t/font_1134501_cn2tgdnrr59.eot');
-    src: url('//at.alicdn.com/t/font_1134501_cn2tgdnrr59.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1134501_cn2tgdnrr59.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1134501_cn2tgdnrr59.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1134501_cn2tgdnrr59.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1134501_cn2tgdnrr59.svg#iconfont') format('svg');
-}
-
-.iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 i{
     font-style: normal;
 }

@@ -1,13 +1,13 @@
 <template>
-  <el-container class="layout-wrap">
+  <el-container class="layout-wrap" :class="[slideStatus?'hide-slide':'show-slide']">
 
-    <el-aside :class="slideStatus?'put':'open'">
+    <el-aside>
       <Menu></Menu>
     </el-aside>
 
-    <el-container>
+    <el-container class="layout-container">
 
-      <el-header height="auto">
+      <el-header height="auto" :class="[isFixHeader?'fix-header':'scroll-header']">
         <header-bar></header-bar>
         <tag-view></tag-view>
       </el-header>
@@ -17,24 +17,10 @@
       </el-main>
 
       <!--<el-footer>-->
-      <!--  132-->
       <!--</el-footer>-->
 
     </el-container>
 
-    <div
-        class="on-off"
-        :class="drawerVisible?'on':'off'"
-        @click="drawerVisible=!drawerVisible">
-      <i class="el-icon-circle-plus-outline"></i>
-    </div>
-
-    <el-drawer
-        class="setting-drawer"
-        :show-close="false"
-        :visible.sync="drawerVisible">
-
-    </el-drawer>
   </el-container>
 </template>
 
@@ -55,7 +41,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['slideStatus'])
+    ...mapState(['slideStatus', 'isFixHeader'])
   },
 
   data() {
@@ -68,29 +54,35 @@ export default {
 
 <style scoped lang="less">
   .layout-wrap {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
   }
 
   .el-header {
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     padding: 0;
   }
 
   .el-aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 211px !important;
+    height: 100vh;
     background-color: #1d1e23;
     color: rgb(191, 203, 217);
     overflow: hidden;
     transition: width .3s ease-in-out;
+  }
 
-    &.put {
-      width: 60px !important;
-    }
+  .layout-container {
+    margin-left: 211px;
+    transition: margin-left .3s ease-in-out;
+  }
 
-    &.open {
-      width: 211px !important;
-    }
+  .el-main {
+    margin-top: 5px;
+    background-color: #fff;
   }
 
   .on-off {
@@ -126,4 +118,54 @@ export default {
       width: 260px !important;
     }
   }
+
+  .hide-slide {
+    .el-aside {
+      width: 60px !important;
+    }
+
+    .layout-container {
+      margin-left: 60px;
+    }
+
+    .fix-header {
+      width: calc(100% - 60px);
+    }
+
+    .scroll-header {
+      width: 100%;
+    }
+
+  }
+
+  .show-slide {
+
+    .fix-header {
+      width: calc(100% - 211px);
+    }
+
+    .scroll-header {
+      width: 100%;
+    }
+
+  }
+
+  .fix-header {
+    &.el-header {
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 2;
+       transition: width .3s ease-in-out;
+
+      .tab {
+        box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+      }
+    }
+
+    + .el-main {
+      margin-top: 104px;
+    }
+  }
+
 </style>

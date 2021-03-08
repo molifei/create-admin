@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-checkbox-group v-model="checkTableList">
+    <el-checkbox-group v-model="checkTableList" @change="changeTable">
       <el-checkbox label="name">姓名</el-checkbox>
       <el-checkbox label="age">年龄</el-checkbox>
       <el-checkbox label="gender">性别</el-checkbox>
@@ -9,7 +9,9 @@
     <el-table
         :data="tableData1"
         border
-        style="width: 100%">
+        style="width: 100%"
+        :key="tableKey"
+    >
       <el-table-column
           v-for="item in checkTableList"
           :key="item"
@@ -29,6 +31,8 @@ export default {
 
   data() {
     return {
+      tableKey: 0,
+
       checkTableList: ['name', 'age'],
 
       tableData1: [
@@ -45,6 +49,13 @@ export default {
       ]
     }
   },
+
+  methods: {
+    changeTable(value) {
+      this.tableKey++
+    }
+  }
+
 }
 </script>
 
